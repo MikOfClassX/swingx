@@ -562,6 +562,14 @@ public class JXHeaderTest extends TestCase {
         return null;
     }
 
+    /**
+	 * 
+	 */
+	public JXHeaderTest()
+	{
+		 new JXHeader();
+	}
+    
     
     @Override
     protected void setUp() throws Exception {

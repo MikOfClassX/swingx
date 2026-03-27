@@ -22,6 +22,7 @@ package org.jdesktop.swingx.plaf;
 
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
@@ -177,13 +178,15 @@ public abstract class LookAndFeelAddons {
     }
 
     public static void setAddon(String addonClassName) throws InstantiationException,
-            IllegalAccessException, ClassNotFoundException {
+            IllegalAccessException, ClassNotFoundException, InvocationTargetException,
+            NoSuchMethodException {
         setAddon(Class.forName(addonClassName, true, getClassLoader()));
     }
 
     public static void setAddon(Class<?> addonClass) throws InstantiationException,
-            IllegalAccessException {
-        LookAndFeelAddons addon = (LookAndFeelAddons) addonClass.newInstance();
+            IllegalAccessException, InvocationTargetException, NoSuchMethodException {
+        LookAndFeelAddons addon = (LookAndFeelAddons) addonClass.getDeclaredConstructor()
+                .newInstance();
         setAddon(addon);
     }
 

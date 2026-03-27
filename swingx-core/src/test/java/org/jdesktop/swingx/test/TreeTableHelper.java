@@ -15,9 +15,7 @@ import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 
-import org.jdesktop.swingx.treetable.MutableTreeTableNode;
-import org.jdesktop.swingx.treetable.TreeTableModel;
-import org.jdesktop.swingx.treetable.TreeTableNode;
+import org.jdesktop.swingx.treetable.*;
 
 /**
  * This is a quick temporary addition to make the JXTreeTableVisualCheck compilable - most
@@ -110,7 +108,7 @@ public class TreeTableHelper {
         public PostorderEnumeration(TreeNode rootNode) {
             super();
             root = rootNode;
-            children = root.children();
+            children = (Enumeration<TreeNode>) root.children();
             subtree = DefaultMutableTreeNode.EMPTY_ENUMERATION;
         }
 
@@ -176,7 +174,7 @@ public class TreeTableHelper {
 //                    = random.nextInt((depth / 2 + 1)
 //                    * Math.round(ROWS / 20f)) + 1; 
                 --i >= 0;)
-                node.insert((MutableTreeNode) createTreeTableNode(depth),
+                node.insert(createTreeTableNode(depth),
                         node.getChildCount());
         return node;
 
@@ -233,8 +231,7 @@ public class TreeTableHelper {
         
 }
 
-    public static class Node extends DefaultMutableTreeNode implements
-            MutableTreeTableNode {
+    public static class Node extends AbstractMutableTreeTableNode {
 
         Node(Object[] d) {
             super(d);
@@ -242,22 +239,6 @@ public class TreeTableHelper {
         }
 
         Object[] data;
-
-        @Override
-        public void insert(MutableTreeTableNode child, int index) {
-            super.insert((MutableTreeNode) child, index);
-        }
-
-        @Override
-        public void remove(MutableTreeTableNode node) {
-            super.remove((MutableTreeNode) node);
-
-        }
-
-        @Override
-        public void setParent(MutableTreeTableNode newParent) {
-            super.setParent((MutableTreeNode) newParent);
-        }
 
         @Override
         public int getColumnCount() {

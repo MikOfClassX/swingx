@@ -21,7 +21,6 @@
 
 package org.jdesktop.swingx;
 
-import java.applet.Applet;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.ComponentOrientation;
@@ -610,7 +609,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
      * @param rowData Row data, as a Vector of Objects.
      * @param columnNames Column names, as a Vector of Strings.
      */
-    public JXTable(Vector<?> rowData, Vector<?> columnNames) {
+    public JXTable(Vector<? extends Vector> rowData, Vector<?> columnNames) {
         super(rowData, columnNames);
         init();
     }
@@ -4250,8 +4249,7 @@ public class JXTable extends JTable implements TableColumnModelExtListener {
                     } else if (c instanceof JPopupMenu) {
                         // PENDING JW: left-over? we should never reach this ...
                         // need to switch the hierarchy to a popups invoker
-                    } else if ((c instanceof Window)
-                            || (c instanceof Applet && c.getParent() == null)) {
+                    } else if (c instanceof Window) {
                         if (c == SwingUtilities.getRoot(JXTable.this)) {
                             if (!getCellEditor().stopCellEditing()) {
                                 getCellEditor().cancelCellEditing();

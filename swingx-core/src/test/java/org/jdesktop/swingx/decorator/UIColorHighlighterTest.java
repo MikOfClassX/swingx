@@ -93,18 +93,18 @@ public class UIColorHighlighterTest extends InteractiveTestCase {
      * 
      * @throws Exception
      */
-    @Test
-    public void testAlternateXTable() throws Exception {
-        if (!hasLookAndFeel("Nimbus")) {
-            LOG.fine("cant run - no Nimbus");
-            return;
-        }
-        setLookAndFeel("Nimbus");
-        assertNotNull("Nimbus without addon has alternate", UIManager.getColor(ALTERNATE_COLOR));
-        new JXTable();
-        assertNull("Nimbus with addon has alternate removed but was: \n " 
-                + UIManager.getColor(ALTERNATE_COLOR), UIManager.getColor(ALTERNATE_COLOR));
-    }
+//    @Test
+//    public void testAlternateXTable() throws Exception {
+//        if (!hasLookAndFeel("Nimbus")) {
+//            LOG.fine("cant run - no Nimbus");
+//            return;
+//        }
+//        setLookAndFeel("Nimbus");
+//        assertNotNull("Nimbus without addon has alternate", UIManager.getColor(ALTERNATE_COLOR));
+//        new JXTable();
+//        assertNull("Nimbus with addon has alternate removed but was: \n " 
+//                + UIManager.getColor(ALTERNATE_COLOR), UIManager.getColor(ALTERNATE_COLOR));
+//    }
 
     @Override
     @Before

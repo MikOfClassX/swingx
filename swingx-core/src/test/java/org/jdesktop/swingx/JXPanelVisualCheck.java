@@ -50,7 +50,7 @@ import org.jdesktop.swingx.painter.MattePainter;
 import org.jdesktop.swingx.test.XTestUtils;
 import org.jdesktop.swingx.util.PaintUtils;
 
-import com.sun.java.swing.Painter;
+import javax.swing.Painter;
 
 /**
  * Contains methods to visually test JXPanel.

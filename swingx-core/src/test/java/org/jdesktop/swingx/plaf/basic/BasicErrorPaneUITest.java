@@ -2,7 +2,6 @@ package org.jdesktop.swingx.plaf.basic;
 
 import static org.junit.Assert.assertNotNull;
 
-import java.applet.Applet;
 import java.awt.GraphicsEnvironment;
 import java.util.logging.Logger;
 
@@ -74,15 +73,6 @@ public class BasicErrorPaneUITest {
     }
 
     @Test
-    public void testGetErrorFrameApplet() {
-        if (GraphicsEnvironment.isHeadless()) {
-            LOG.fine("cannot run - headless environment");
-            return;
-        }
-        assertNotNull(ui.getErrorFrame(new Applet()));
-    }
-
-    @Test
     public void testGetErrorFrameJWindow() {
         if (GraphicsEnvironment.isHeadless()) {
             LOG.fine("cannot run - headless environment");
@@ -134,15 +124,6 @@ public class BasicErrorPaneUITest {
             return;
         }
         assertNotNull(ui.getErrorDialog(new JPanel()));
-    }
-
-    @Test
-    public void testGetErrorDialogApplet() {
-        if (GraphicsEnvironment.isHeadless()) {
-            LOG.fine("cannot run - headless environment");
-            return;
-        }
-        assertNotNull(ui.getErrorDialog(new Applet()));
     }
 
     /**
@@ -197,15 +178,6 @@ public class BasicErrorPaneUITest {
             return;
         }
         assertNotNull(ui.getErrorInternalFrame(new JPanel()));
-    }
-
-    @Test
-    public void testGetErrorInternalFrameApplet() {
-        if (GraphicsEnvironment.isHeadless()) {
-            LOG.fine("cannot run - headless environment");
-            return;
-        }
-        assertNotNull(ui.getErrorInternalFrame(new Applet()));
     }
 
     @Test
