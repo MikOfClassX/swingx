@@ -4,7 +4,7 @@ This is a fork of the great SwingX library. Its a pity it was not developed any 
 
 ## Modifications
 
-* Java26 compatible (Applet removed)
+* Java26 compatible (Applet/JXApplet removed)
 * WebStart was completely removed
 * OpenJDK 8 buildable
 * SwingX - Demos integrated in main build
