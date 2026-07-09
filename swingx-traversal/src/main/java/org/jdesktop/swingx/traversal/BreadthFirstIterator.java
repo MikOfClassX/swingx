@@ -11,7 +11,7 @@ import javax.swing.tree.TreeNode;
  * @param <M> base clss derived from TreeNode that this Iterator returns.
  */
 public class BreadthFirstIterator<M extends TreeNode> implements Iterator<M> {
-	protected Deque<M> stack = new ArrayDeque<>(); 
+	protected Deque<M> stack = new ArrayDeque<>();
 
 	public BreadthFirstIterator(M rootNode) {
 		stack.push(rootNode);
@@ -25,7 +25,7 @@ public class BreadthFirstIterator<M extends TreeNode> implements Iterator<M> {
 	@Override
 	public M next() {
 		M node = stack.pop();
-		for (int i = 0;i < node.getChildCount(); i++) {
+		for (int i = 0; i < node.getChildCount(); i++) {
 			stack.offer((M) node.getChildAt(i));
 		}
 		return node;
@@ -40,12 +40,12 @@ public class BreadthFirstIterator<M extends TreeNode> implements Iterator<M> {
 	public static <T extends TreeNode> void process(T rootNode, Consumer<T> consumer) {
 		Deque<T> stack = new ArrayDeque<>();
 		stack.push(rootNode);
-		
+
 		while (!stack.isEmpty()) {
 			var node = stack.pop();
 			consumer.accept(node);
-			for ( int i=0;i<node.getChildCount();i++) {
-				stack.offer((T)node.getChildAt(i));
+			for (int i = 0; i < node.getChildCount(); i++) {
+				stack.offer((T) node.getChildAt(i));
 			}
 		}
 	}

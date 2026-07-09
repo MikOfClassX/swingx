@@ -1,22 +1,22 @@
 package org.jdesktop.swingx.traversal;
 
 /**
- * This package provides Iterators for different tree traversals. At the moment this uses TreeNode (Swing) as a 
+ * This package provides Iterators for different tree traversals. At the moment this uses TreeNode (Swing) as a
  * node class.
- * 
+ *
  * Every Iterator contains a process method to traverse a tree without using an Iterator and providing a consumer
- * for each visited Node. 
- * 
+ * for each visited Node.
+ *
  * Supported are preorder, postorder and breadth first traversal.
- * 
- * 
- * <pre>{@code 
+ *
+ *
+ * <pre>{@code
  * // iterator
  * new PreOrderIterator(root node)
- * 
+ *
  * // processor
  * PreOrderIterator.process(root node, node -> do something);
  * }</pre>
- * 
- * 
+ *
+ *
  */

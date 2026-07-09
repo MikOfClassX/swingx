@@ -1,19 +1,16 @@
 package org.jdesktop.swingx.traversal;
 
+import static java.util.stream.Collectors.joining;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
-import static java.util.stream.Collectors.joining;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
-import static org.assertj.core.api.Assertions.assertThat;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 
 public class BreadthFirstIteratorTest {
 	@Test
@@ -51,5 +48,5 @@ public class BreadthFirstIteratorTest {
 				BreadthFirstIterator.process(node, consumer);
 			}
 		});
-	}	
+	}
 }
