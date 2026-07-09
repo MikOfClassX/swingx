@@ -6,7 +6,6 @@ import java.util.Enumeration;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 import java.util.Vector;
-import java.util.logging.Logger;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreeNode;
 import javax.swing.tree.TreePath;
@@ -408,7 +407,4 @@ public class TreeUtilities {
 	}
 
 	private TreeUtilities() {}
-
-	@SuppressWarnings("unused")
-	private static final Logger LOG = Logger.getLogger(TreeUtilities.class.getName());
 }
