@@ -7,8 +7,8 @@ import java.util.function.Consumer;
 import javax.swing.tree.TreeNode;
 
 /**
- * PreOrder Iterator for TreeNodes.
- * @param <M> base clss derived from TreeNode that this Iterator returns.
+ * PostOrder Iterator for TreeNodes.
+ * @param <M> base class derived from TreeNode that this Iterator returns.
  */
 public class PostOrderIterator<M extends TreeNode> implements Iterator<M> {
 	protected static class NodeData<M> {
@@ -62,7 +62,7 @@ public class PostOrderIterator<M extends TreeNode> implements Iterator<M> {
 	}
 
 	/**
-	 * Simple processor that traverses nodes in pre order and calls the given consumer.
+	 * Simple processor that traverses nodes in post order and calls the given consumer.
 	 * @param <T>
 	 * @param rootNode
 	 * @param consumer

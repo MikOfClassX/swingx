@@ -4,6 +4,18 @@
 
 This is a fork of the great SwingX library. Its a pity it was not developed any further. 
 
+## Modifications version 2.2
+
+* introduces modul swingx-traversal (this one translates TreeUtilities to modern methods and styles)
+```java
+// iterator
+new PreOrderIterator(root node)
+
+// processor
+PreOrderIterator.process(root node, node -> do something);
+```
+
+
 ## Modifications version 2.1
 
 * published to maven central (**com.github.wumpz.swingx**)

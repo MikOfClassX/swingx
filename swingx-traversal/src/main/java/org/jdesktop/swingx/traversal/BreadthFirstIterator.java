@@ -7,7 +7,7 @@ import java.util.function.Consumer;
 import javax.swing.tree.TreeNode;
 
 /**
- * PreOrder Iterator for TreeNodes.
+ * BreadthFirst Iterator for TreeNodes.
  * @param <M> base clss derived from TreeNode that this Iterator returns.
  */
 public class BreadthFirstIterator<M extends TreeNode> implements Iterator<M> {
@@ -32,7 +32,7 @@ public class BreadthFirstIterator<M extends TreeNode> implements Iterator<M> {
 	}
 
 	/**
-	 * Simple processor that traverses nodes in pre order and calls the given consumer.
+	 * Simple processor that traverses nodes in breadth first and calls the given consumer.
 	 * @param <T>
 	 * @param rootNode
 	 * @param consumer
