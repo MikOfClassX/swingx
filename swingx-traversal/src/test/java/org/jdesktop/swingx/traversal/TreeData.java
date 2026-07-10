@@ -10,6 +10,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
@@ -70,6 +71,8 @@ public class TreeData {
 		Iterator<TreeNode> iterator(TreeNode root);
 
 		void process(TreeNode node, Consumer<TreeNode> consumer);
+
+		Stream<TreeNode> stream(TreeNode root);
 	}
 
 	public static void doTreeDataRandomTest(int rounds, Provider provider) {
@@ -85,20 +88,27 @@ public class TreeData {
 
 			// by iterator
 			var iterator = provider.iterator((TreeNode) model.getRoot());
-			StringBuilder b = new StringBuilder();
+			StringBuilder strIterator = new StringBuilder();
 			while (iterator.hasNext()) {
-				b.append("/").append(iterator.next().toString());
+				strIterator.append("/").append(iterator.next().toString());
 			}
 
 			// by processor
 			List<String> list = new ArrayList<>();
 			provider.process((TreeNode) model.getRoot(), node -> list.add(node.toString()));
-			var str = "/" + list.stream().collect(joining("/"));
+			var strProcess = "/" + list.stream().collect(joining("/"));
+
+			// by stream
+			var strStream = "/"
+					+ provider.stream((TreeNode) model.getRoot())
+							.map(node -> node.toString())
+							.collect(joining("/"));
 
 			assertThat(counter.intValue())
 					.as("run " + i + " should have more nodes")
 					.isGreaterThanOrEqualTo(5);
-			assertThat(str).isEqualTo(b.toString());
+			assertThat(strProcess).isEqualTo(strIterator.toString());
+			assertThat(strStream).isEqualTo(strIterator.toString());
 		}
 	}
 }

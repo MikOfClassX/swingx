@@ -3,7 +3,11 @@ package org.jdesktop.swingx.traversal;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
+import java.util.Spliterator;
+import java.util.Spliterators;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 import javax.swing.tree.TreeNode;
 
 /**
@@ -72,5 +76,17 @@ public class PostOrderIterator<M extends TreeNode> implements Iterator<M> {
 			process((T) rootNode.getChildAt(i), consumer);
 		}
 		consumer.accept(rootNode);
+	}
+
+	/**
+	 * Stream derived from the Iterator.
+	 * @param <T>
+	 * @param rootNode
+	 * @return
+	 */
+	public static <T extends TreeNode> Stream<T> stream(T rootNode) {
+		Spliterator<T> spliterator =
+				Spliterators.spliteratorUnknownSize(new PostOrderIterator(rootNode), Spliterator.NONNULL);
+		return StreamSupport.stream(spliterator, false);
 	}
 }

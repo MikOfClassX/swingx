@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 import org.junit.jupiter.api.Test;
@@ -31,6 +32,14 @@ public class PreOrderIteratorTest {
 	}
 
 	@Test
+	void testStream() {
+		assertThat(PreOrderIterator.stream((TreeNode) TreeData.testModel().getRoot())
+						.map(node -> node.toString())
+						.collect(joining("/")))
+				.isEqualTo("root/A/B/C/D/E/F/f1/f2/G");
+	}
+
+	@Test
 	void testProcessorAgainstIteratorDeepness10MaxChildren5() {
 		TreeData.doTreeDataRandomTest(100, new TreeData.Provider() {
 			@Override
@@ -46,6 +55,11 @@ public class PreOrderIteratorTest {
 			@Override
 			public void process(TreeNode node, Consumer<TreeNode> consumer) {
 				PreOrderIterator.process(node, consumer);
+			}
+
+			@Override
+			public Stream<TreeNode> stream(TreeNode root) {
+				return PreOrderIterator.stream(root);
 			}
 		});
 	}

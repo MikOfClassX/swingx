@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.stream.Stream;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.TreeNode;
 import org.jdesktop.swingx.traversal.TreeData.Provider;
@@ -33,6 +34,14 @@ public class PostOrderIteratorTest {
 	}
 
 	@Test
+	void testStream() {
+		assertThat(PostOrderIterator.stream((TreeNode) TreeData.testModel().getRoot())
+						.map(node -> node.toString())
+						.collect(joining("/")))
+				.isEqualTo("B/C/A/E/f1/f2/F/G/D/root");
+	}
+
+	@Test
 	void testProcessorAgainstIteratorDeepness10MaxChildren5() {
 		TreeData.doTreeDataRandomTest(100, new Provider() {
 			@Override
@@ -48,6 +57,11 @@ public class PostOrderIteratorTest {
 			@Override
 			public void process(TreeNode node, Consumer<TreeNode> consumer) {
 				PostOrderIterator.process(node, consumer);
+			}
+
+			@Override
+			public Stream<TreeNode> stream(TreeNode root) {
+				return PostOrderIterator.stream(root);
 			}
 		});
 	}
