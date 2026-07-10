@@ -13,6 +13,9 @@ new PreOrderIterator(root node)
 
 // processor
 PreOrderIterator.process(root node, node -> do something);
+
+// stream
+PreOrderIterator.stream(root node);
 ```
 
 
