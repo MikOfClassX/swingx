@@ -6,7 +6,7 @@
     <artifactId>swingx-project</artifactId>
     <version>2.2-SNAPSHOT</version>
   </parent>
-  <groupId>org.jdesktop.swingx.traversal</groupId>
+  <groupId>com.github.wumpz.swingx</groupId>
   <artifactId>swingx-traversal</artifactId>
   <packaging>jar</packaging>
   <description>Tool classes and methods to traverse swing components items. (e.g. Trees)</description>
