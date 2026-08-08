@@ -52,15 +52,6 @@
     <system>github</system>
     <url>https://github.com/wumpz/swingx/issues</url>
   </issueManagement>
-  <!-- 
-  <distributionManagement>
-    <repository>
-      <id>github-packages</id>
-      <name>wumpz/swingx</name>
-      <url>https://maven.pkg.github.com/wumpz/swingx</url>
-    </repository>
-  </distributionManagement>
-    -->
   <properties>
     <project.generatedSourcesDirectory>${project.build.directory}/generated-sources</project.generatedSourcesDirectory>
     <project.generatedAnnotations>${project.generatedSourcesDirectory}/annotations</project.generatedAnnotations>
@@ -70,7 +61,7 @@
       <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter</artifactId>
-        <version>5.14.3</version>
+        <version>6.1.2</version>
         <scope>test</scope>
       </dependency>
       <dependency>
