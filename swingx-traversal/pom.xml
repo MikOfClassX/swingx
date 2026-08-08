@@ -4,12 +4,12 @@
   <parent>
     <groupId>com.github.wumpz.swingx</groupId>
     <artifactId>swingx-project</artifactId>
-    <version>2.2-SNAPSHOT</version>
+    <version>2.2</version>
   </parent>
   <groupId>com.github.wumpz.swingx</groupId>
   <artifactId>swingx-traversal</artifactId>
   <packaging>jar</packaging>
-	<name>SwingX Traversal</name>
+  <name>SwingX Traversal</name>
   <description>Tool classes and methods to traverse swing components items. (e.g. Trees)</description>
   <properties>
     <exec.mainClass>org.jdesktop.swingx.traversal.swingx.traversal.SwingxTraversal</exec.mainClass>
